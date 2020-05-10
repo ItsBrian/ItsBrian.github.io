@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {padding:0px;margin:0px;}
+
+.cube {
+  font-size: 130px;               /*   CUBE SIZE   */
+  height: 2em;
+  width: 2em;
+  transform-style: preserve-3d;
+  transform: rotateX(-35deg) rotateY(45deg);
+  transition: transform 2s;
+  outline: 1px solid blue;
+  padding: .75em;                /*   MAIN PADDING   (.75em .5em .75em .5em also works)   */
+  display: inline-block;
+}
+
+.cube:hover {
+	transform: rotateX(0deg) rotateY(0deg);
+}
+
+.side {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background: url("https://lh6.googleusercontent.com/proxy/q9LY7Pfb9hCnnM0pzAGTJ2QGrTspQ-JBlO-w04xs1y_LryGRG5qkVj6_WQyVTIy7jZVtK_MC3qfM8BGf2iWukCDmVFsDRKAhjg=s0-d");
+  background-size: 100%;
+  padding: .5px;
+}
+
+.front {transform: translateZ(1em);}
+.top {transform: rotateX(90deg) translateZ(1em);}
+.left {transform: rotateY(-90deg) translateZ(1em);}
+</style>
+</head>
+<body>
+
+<div class="cube">
+  <div class="side front">F</div>
+  <div class="side left">S</div>
+  <div class="side top">T</div>
+</div>
+
+</body>
+</html>
