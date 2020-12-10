@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,13 +83,13 @@ button:hover {
     </div>
     <div id="target"></div>
 
-<script src="https://itsbrian.tk/jquery.js" type="application/javascript"></script>
+<script src="https://itsbrian.github.io/jquery.js" type="application/javascript"></script>
 <script>
 
 var words = [
     // Pagina 29 
     
-	/*  "un cancre", "een luie, ongehoorzame leerling",
+	"un cancre", "een luie, ongehoorzame leerling",
     "un débutant", "een beginneling",
     "l'enseignement général", "het algemeen onderwijs (aso)",
     "l'enseignement professionnel", "het beroepsonderwijs",
@@ -135,7 +136,7 @@ var words = [
     "un calendrier", "een kalender",
     "la chimie", "de Chemie",
     "une réserve", "een (natuur)reservaat",
-    "le volontariat", "het vrijwilligerswerk", */
+    "le volontariat", "het vrijwilligerswerk",
     
     // Pagina 60
     
@@ -217,7 +218,26 @@ var words = [
     "en plein soleil", "in volle zon",
     "un flamant", "een flamingo",
     "un panda", "een panda",
-    "un tapir", "een tapir"
+    "un tapir", "een tapir",
+    
+    
+    // Pagina 81
+    
+    "un braconnier", "een stroper", 
+    "une cannette", "een blikje", 
+    "une couche", "een laag", 
+    "un feutre", "een stift", 
+    "un récolteur", "een oogstarbeider", 
+    "une règle d'or", "een gouden regel", 
+    "un stylo à plume", "een vulpen", 
+    "un trou", "een gat", 
+    "consigné, consignée", "met statiegeld", 
+    "jetable", "wegwerpbaar", 
+    "nuisible", "schadelijk", 
+    "alimenter", "zich voeden", 
+    "emballer", "verpakken, inpakken", 
+    "être au courant", "op de hoogte zijn van", 
+    "en vrac", "in bulk, niet verpakt"
 ]
 
 
@@ -225,7 +245,7 @@ function overzicht(){
     $("#menu").hide();
     html = "<table>"
     for (i=0; i<words.length; i+=2){
-        html += `<tr><td>${words[i]}</td><td>${words[i+1]}</td></tr>`
+        html += `<tr><td style="opacity:0.3">${Math.floor(i/2)+1})</td><td>${words[i]}</td><td>${words[i+1]}</td></tr>`
     }
     $("#target").html(html);
 }
