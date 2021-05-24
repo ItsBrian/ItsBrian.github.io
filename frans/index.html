@@ -455,7 +455,7 @@ function checkInput(){
     	if (inputLetters[i] == answerLetters[i])
         	correction += `<span class="green">${inputLetters[i]}</span>`
         else
-        	correction += `<span class="red">${answerLetters[i]}</span>`
+        	correction += `<span class="red">${inputLetters[i]}</span>`
     }
     
 	$("#target").html(`<div class="card">
