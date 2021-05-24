@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -437,7 +438,7 @@ function nextExamWord(){
         ++wordsAsked
         $("#target").html(`<div class="card">
         				   		<h2>${wordNl}</h2>
-                                <input id="antwoord" placeholder="Vertaling..." autocomplete="off" autofocus>
+                                <input onkeydown="possibleSubmit()" id="antwoord" placeholder="Vertaling..." autocomplete="off" autofocus>
                                 <button onclick="checkInput()">Check</button>
                                 <br><span>(${wordsAsked}/${words.length/2})</span>
         			  	   </div>`)
@@ -484,6 +485,13 @@ $("#antwoord").on('keyup', function (e) {
         checkInput()
     }
 });
+
+function possibleSubmit(){
+	if (event.key == "Enter")
+    	checkInput()
+    else if (event.key == "NumLock")
+    	window.location.href = "https://youtu.be/dQw4w9WgXcQ"
+}
 	
 </script>
 </center>
