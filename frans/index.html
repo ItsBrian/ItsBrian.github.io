@@ -446,7 +446,7 @@ function nextExamWord(){
 }
 
 function checkInput(){
-	input = document.getElementById("antwoord").value;
+	input = document.getElementById("antwoord").value.trim();
     if (input == "penis") window.location.href = "https://youtu.be/QtBDL8EiNZo"
     if (input == wordFr) ++wordsCorrect
     input = input.padEnd(wordFr.length, "?")
