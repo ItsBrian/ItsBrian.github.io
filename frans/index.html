@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +48,22 @@ button {
   background-color: rgba(0,140,186,0.2)
 }
 
+input {
+	border: 2px solid #008CBA;
+    padding: 11px 10px;
+    outline: none;
+}
+
+p.input {
+	margin: 0px;
+	width: 150px;
+	display: inline-block;
+    border: 2px solid #008CBA;
+    padding: 11px 10px;
+    outline: none;
+    text-align: left;
+}
+
 button:hover {
   background-color: #008CBA;
   color: white;
@@ -69,6 +86,8 @@ button:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+span.green {color: green}
+span.red {color: red}
 
 </style>
 </head>
@@ -79,7 +98,7 @@ button:hover {
         <button onclick="overzicht()">Overzicht woordjes</button><br>
         <button onclick="flashcardsFTN()">Flashcards: Frans naar Nederlands</button><br>
         <button onclick="flashcardsNTF()">Flashcards: Nederlands naar Frans</button><br>
-        <button onclick="examen()" disabled style="opacity:0.5">Examen (Onder Constructie)</button><br>
+        <button onclick="examen()">Examen</button><br>
     </div>
     <div id="target"></div>
 
@@ -392,6 +411,72 @@ function checkCardNTF(){
                                 <h1>${words[rndm-1]}</h1>
                                 <button onclick="nextCardNTF()">Next</button>
                        </div>`);
+}
+
+function examen(){
+	$("#menu").hide();
+    wordsAsked = 0;
+    wordsCorrect = 0;
+    for (w in words)
+    	words[w] = words[w].split(" (")[0]
+    indexOrder = Array.from({length: words.length/2}, (_, i) => i * 2)
+    shuffleArray(indexOrder)
+    console.log(indexOrder)
+    nextExamWord()
+}
+
+function nextExamWord(){
+	if (wordsAsked == words.length/2)
+    	$("#target").html(`<div class="card">
+        				   		<h2>Je had ${wordsCorrect} van de ${words.length/2} woorden juist (${Math.round(wordsCorrect/(words.length/2)*100)}%)</h2>
+                           </div>`)
+    else {
+    	
+        wordFr = words[indexOrder[wordsAsked]]
+        wordNl = words[indexOrder[wordsAsked]+1]
+        ++wordsAsked
+        $("#target").html(`<div class="card">
+        				   		<h2>${wordNl}</h2>
+                                <input id="antwoord" placeholder="Vertaling...">
+                                <button onclick="checkInput()">Check</button>
+                                <br><span>(${wordsAsked}/${words.length/2})</span>
+        			  	   </div>`)
+    }
+}
+
+function checkInput(){
+	input = document.getElementById("antwoord").value;
+    if (input == wordFr) ++wordsCorrect
+    input = input.padEnd(wordFr.length, "?")
+    inputLetters = input.split("")
+    answerLetters = wordFr.split("")
+    correction = ``
+    for (i in inputLetters){
+    	if (inputLetters[i] == answerLetters[i])
+        	correction += `<span class="green">${inputLetters[i]}</span>`
+        else
+        	correction += `<span class="red">${answerLetters[i]}</span>`
+    }
+    
+	$("#target").html(`<div class="card">
+        				   		<h2>${wordFr}</h2>
+                                <p class="input">${correction}</p>
+                                <button onclick="nextExamWord()">Next</button>
+                                <br><span>(${wordsAsked}/${words.length/2})</span>
+        			  	   </div>`)
+}
+
+function getRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 </script>
