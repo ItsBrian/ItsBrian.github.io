@@ -437,7 +437,7 @@ function nextExamWord(){
         ++wordsAsked
         $("#target").html(`<div class="card">
         				   		<h2>${wordNl}</h2>
-                                <input id="antwoord" placeholder="Vertaling...">
+                                <input id="antwoord" placeholder="Vertaling..." autocomplete="off" autofocus>
                                 <button onclick="checkInput()">Check</button>
                                 <br><span>(${wordsAsked}/${words.length/2})</span>
         			  	   </div>`)
