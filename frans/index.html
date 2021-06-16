@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,11 +54,12 @@ input {
 	border: 2px solid #008CBA;
     padding: 11px 10px;
     outline: none;
+    width: 250px;
 }
 
 p.input {
 	margin: 0px;
-	width: 150px;
+	width: 250px;
 	display: inline-block;
     border: 2px solid #008CBA;
     padding: 11px 10px;
@@ -313,8 +315,84 @@ var words = [
 	"la taekwondo", "de taekwondo",
 	"le triathlon", "de triathlon",
 	"le tumbling", "het tumbling",
-	"le volley-ball", "het volleybal"
-	
+	"le volley-ball", "het volleybal",
+    
+    // Pagina 202
+    "un contrat à durée indéterminée", "een contract van onbepaalde duur",
+    "un contrat à durée déterminée", "een contract van bepaalde duur",
+    "un inconvénient", "een nadeel",
+    "l'inverse (m)", "het omgekeerde",
+    "un poste fixe", "een vaste betrekking",
+    "une rémunération", "een verloning",
+    "compétent(e)", "onderlegd, bekwaam",
+    "concerné(e)", "betrokken",
+    "déterminé(e)", "vastberaden",
+    "efficace", "doeltreffend",
+    "empathique", "meelevend, invoelend",
+    "entreprenant(e)", "ondernemend",
+    "muet(te)", "stom",
+    "prêt(e)", "bereid",
+    "prêt(e) à", "bereid om",
+    "rassurant(e)", "geruststellend",
+    "répétitif (répétitive)", "zich herhalend",
+    "réputé(e)", "befaamd",
+    "similaire", "gelijkend, gelijksoortig",
+    "travailleur (travailleuse)", "ijverig, werkzaam",
+    "cataloguer", "bestempelen",
+    "maîtriser", "beheersen",
+    "privilégier", "bevoorrechten",
+    "reprocher (à ... de)", "iemand iets verwijten",
+    
+    // Pagina 203
+    "large d'esprit", "ruimdenkend, open minded",
+    "une anecdote", "een anecdote",
+    "un communicateur", "een communiceerder",
+    "un curriculum vitae", "een cv",
+    "un diplomate", "een diplomaat",
+    "la familiarité", "de familiariteit, vertrouwelijkheid",
+    "un recruteur", "een rekruteerder",
+    "extraverti(e)", "extravert",
+    "introverti(e)", "introvert",
+    "perfectionniste", "perfectionnistisch",
+    "polyvalent(e)", "polyvalent, veelzijdig",
+    "ponctuel(le)", "stipt, punctueel",
+    "solidaire", "solidair",
+    "débuter", "debuteren, beginnen",
+    
+    // Pagina 105
+    "l'ADN (f)", "het DNA",
+    "un avenir", "een toekomst",
+    "une bille", "een knikker",
+    "le boson de Higgs", "het higgsdeeltje",
+    "une cabine téléphonique", "een telefooncel",
+    "un casque d'écoute", "een headset",
+    "une cité", "een stad",
+    "une compagnie aérienne à bas prix", "een lagekostenluchtvaartmaatschappij",
+    "un curé", "een pastoor",
+    "une messagerie instantanée", "een chatbox",
+    "un panneau solaire", "een zonnepaneel",
+    "un tourne-disque", "een platenspeler",
+    "épuisé(e)", "leeg, uitgeput",
+    "flottant(e)", "drijvend",
+    "précédent(e)", "voorgaand",
+    "apparaître", "verschijnen",
+    "éjecter", "uitwerpen",
+    
+    // Pagina 106
+    "un câble de connexion", "een aansluitkabel",
+    "le clonage", "het klonen",
+    "une molécule", "een molecule",
+    
+    // Pagina 165
+	"un bijoutier", "een juwelier",
+    "une friandise", "een snoepje",
+    "une fromagerie", "een kaaswinkel",
+    "une librairie-papeterie", "een boek- en papierhandel",
+    "une maroquinerie", "een lederwinkel",
+    "un pain d'épices", "een kruidenkoek",
+    "une poissonnerie", "een visafdeling, vishandel",
+    "la restauration rapide", "de fastfood",
+    "une viennoiserie", "een luxebroodje, fijn gebak"
 ]
 
 
@@ -419,7 +497,7 @@ function examen(){
     wordsAsked = 0;
     wordsCorrect = 0;
     for (w in words)
-    	words[w] = words[w].split(" (")[0]
+    	words[w] = words[w].split("(")[0].trim()
     indexOrder = Array.from({length: words.length/2}, (_, i) => i * 2)
     shuffleArray(indexOrder)
     console.log(indexOrder)
