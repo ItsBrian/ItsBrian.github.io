@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133689523-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-133689523-1');
+</script>
+
+	
+	
+<link rel="icon" href="https://image.flaticon.com/icons/png/128/25/25694.png">
+<title>Home</title>
+
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+
+<style>
+
+body {
+	padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#settingsicon {
+	width: 20px;
+    -webkit-transition: transform 1.5s, opacity 1.5s, width 1.5s; 
+    transition: transform 1.5s, opacity 1.5s, width 1.5s;
+    opacity: 0.5;
+}
+
+#settingsicon:hover {
+	transform: rotate(300deg);
+    opacity: 1;
+    width: 30px;
+}
+
+#bg-orange-blue {
+width: 100wh;
+	height: 100vh;
+}
+
+#bg-orange-blue, input[type=text] {
+	color: #fff;
+    background: linear-gradient(-45deg, #FF9F1C, #FFBF69, #2EC4B6, #CBF3F0);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 40%
+	}
+	50% {
+		background-position: 90% 40%
+	}
+	100% {
+		background-position: 0% 40%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 40%
+	}
+	50% {
+		background-position: 90% 40%
+	}
+	100% {
+		background-position: 0% 40%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 10% 40%
+	}
+	50% {
+		background-position: 90% 40%
+	}
+	100% {
+		background-position: 10% 40%
+	}
+}
+
+#welcomeback, #subtitle {
+	font-family: 'Open Sans';
+    text-shadow: 1.5px 1.5px black;
+	font-weight: 300;
+	text-align: center;
+	right: 0;
+	left: 0;
+}
+
+#subtitle {
+    padding-top: 0px;
+}
+
+#subtitle span {
+    text-shadow: 3px 3px black;
+    font-family: 'Nanum Gothic Coding';
+    filter:saturate(8);
+    text-indent: 40px;
+}
+
+.searchBox{
+	width: 800px;
+    padding: 15px;
+    outline: none;
+    font-size: 30px;
+    border: 1px solid #424242;
+    border-radius: 100000px;
+    text-shadow: 1.5px 1.5px black;
+}
+
+.searchBox::placeholder {
+	color: white;
+}
+
+.searchBoxSubmit{
+	border: none;
+    width: 45px;
+    color: white;
+    height: 45px;
+    background: url('https://img.icons8.com/metro/1600/search.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;     
+    margin-left: -65px;
+    transform: translate(0px, -6px);
+    transition: border-bottom .5s, padding-top .5s, filter .5s;
+    filter: blur(1px);
+}
+
+.searchBoxSubmit:hover{
+	border-bottom: 1px solid #424242;
+    padding-top: 5px;
+    filter:blur(0px);
+    color: white;
+}
+
+.searchBoxSubmit:active {
+    color: white;
+}
+</style>
+
+<script>
+  
+  function noscroll() {
+  window.scrollTo( 0, 0 );
+}
+
+// add listener to disable scroll
+window.addEventListener('scroll', noscroll);
+  
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+
+// window.setInterval(function(){
+
+// }, 1000);
+
+
+window.setInterval(function(){
+    var name = getUrlVars()["n"];
+    var nameSize = getUrlVars()["ns"];
+    var timeDisplay = getUrlVars()["td"];
+    var hourDisplay = getUrlVars()["hd"];
+    var subtitleSize = getUrlVars()["ss"];
+    var searchEngine = getUrlVars()["se"];
+  
+    var d = new Date();
+    var hours = d.getHours();
+    var minutes = d.getMinutes();
+    var seconds = d.getSeconds();
+    
+    if (seconds <= +9){
+        var NEWseconds = "0" + seconds;
+    } else {
+        var NEWseconds = "" + seconds;
+    }
+    
+    if (minutes <= +9){
+        var NEWminutes = "0" + minutes;
+    } else {
+        var NEWminutes = "" + minutes;
+    }
+    
+    if (hours <= +9){
+        var NEWhours = "0" + hours;
+    } else {
+        var NEWhours = "" + hours;
+    }
+    
+    if (name == "" || name == null){
+        window.location = "http://ItsBrian.github.io/HomescreenGenerator/";
+    }
+
+      document.getElementById("welcomeback").innerHTML = "Welcome back, " + name.replace("%20", " ");;;
+      document.getElementById("welcomeback").style.fontSize = nameSize + "px";
+  
+  
+  
+  	         if (timeDisplay == +1 && hourDisplay == +1){
+                document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + NEWhours + "</b></span> o'clock";
+      } else if (timeDisplay == +2 && hourDisplay == +1){
+                document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + NEWhours + ":" + NEWminutes + "</b></span> o'clock";
+      } else if (timeDisplay == +3 && hourDisplay == +1){
+                document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + NEWhours + ":" + NEWminutes + ":" + NEWseconds + "</b></span> o'clock";
+      } else if (timeDisplay == +1 && hourDisplay == +2){
+                if (hours >= +13){
+                    document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + (hours - 12) + "</b></span> PM";
+                } else {
+                    document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + hours + "</b></span> AM";
+                }
+      } else if (timeDisplay == +2 && hourDisplay == +2){
+                if (hours >= +13){
+                    document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + (hours - 12) + ":" + NEWminutes + "</b></span> PM";
+                } else {
+                    document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + hours + ":" + NEWminutes + "</b></span> AM";
+                }
+      } else if (timeDisplay == +3 && hourDisplay == +2){
+                if (hours >= +13){
+                    document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + (hours - 12) + ":" + NEWminutes + ":" + NEWseconds + "</b></span> PM";
+                } else {
+                    document.getElementById("subtitle").innerHTML = "It is currently <span><b>" + hours + ":" + NEWminutes + ":" + NEWseconds + "</b></span> AM";
+                }
+      } else {document.getElementById("subtitle").innerHTML = "ERROR";}
+      
+  	  
+      if (searchEngine == +1){
+	document.getElementById("searchForm").action = "https://www.google.com/search";
+    document.getElementById("formName").name = "q";
+    document.getElementById("formName").placeholder = "Google Search";
+} else if (searchEngine == +2){
+	document.getElementById("searchForm").action = "https://www.duckduckgo.com/";
+    document.getElementById("formName").name = "q";
+    document.getElementById("formName").placeholder = "DuckDuckGo Search";
+} else if (searchEngine == +3){
+	document.getElementById("searchForm").action = "https://search.yahoo.com/search";
+    document.getElementById("formName").name = "p";
+    document.getElementById("formName").placeholder = "Yahoo Search";
+} else if (searchEngine == +4){
+	document.getElementById("searchForm").action = "https://www.bing.com/search";
+    document.getElementById("formName").name ="q";
+    document.getElementById("formName").placeholder = "Bing Search";
+} else {
+    document.getElementById("formName").placeholder = "Google Search";
+}
+            
+      
+  	  document.getElementById("subtitle").style.fontSize = subtitleSize + "px";
+  
+  
+  
+   // document.getElementById("welcomeback").innerHTML = "Name: " + name + "<br>Title size: " + nameSize + "<br>Time display: " + timeDisplay + "<br>Hour display: " + hourDisplay + "<br>Subtitle size: " + subtitleSize + "<br>Search Engine: " + searchEngine;
+}, 1000);
+
+window.onload = getUrlVars;
+window.onload = getIt;
+
+</script>
+
+<div id="bg-orange-blue">
+
+  <div style="height:25vh;width:0px;"></div>
+  
+<h1 id="welcomeback"></h1>
+<h1 id="subtitle" style="margin-top:-40px;"></h1>
+
+<center>
+	<form action="https://google.com/search" method="get" target="_blank" id="searchForm">
+		<input type="text" id="formName" class="searchBox" name="q" />
+		<input type="submit" value=" " class="searchBoxSubmit">
+	</form>
+</center>
+
+</div>
+
+
+</body>
+</html>
