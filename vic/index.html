@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Vic</title>
+     <style>
+          body {
+               height: 100vh;
+               width: 100vw;
+               overflow: hidden;
+               margin: 0;
+               padding: 0;
+          }
+
+          img {
+               height: 100vh;
+               width: 100vw;
+               position: absolute;
+          }
+
+          h1 {
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               color: red;
+               font-size: min(10vw, 6rem);
+               animation: a 3s infinite;
+          }
+
+          @keyframes a {
+               0% {
+                    color: red;
+                    background-color: green;
+                    transform: translate(-50%, -50%) rotate(0deg);
+                    width: 30%;
+                    height: 50%;
+
+               } 30% {
+                    color: blue;
+                    background-color: lime;
+                    transform: translate(-50%, -50%) rotate(360deg);
+                    width: 50%;
+                    height: 30%;
+
+               }70% {
+                    color: yellow;
+                    background-color: brown;
+                    transform: translate(-30%, -50%) rotate(0deg) scaleX(1) skew(3);
+                    width: 40%;
+                    height: 60%;
+
+               }100% {
+                    color: orange;
+                    background-color: lightcoral;
+                    transform: translate(-30%, -50%) rotate(0deg) scaleX(2);
+                    width: 40%;
+                    height: 60%;
+
+               }
+          }
+     </style>
+</head>
+<body>
+     
+     <img src="pic.png" alt="">
+     <h1><marquee>hapy</marquee><marquee>birtday</marquee></h1>
+     <script>
+          setTimeout(()=>{
+               alert('Gefliciteertd, u bent onze 1.000.000 bezoeker!! U hebt een IPHONE 10 gewonnen')
+               alert(`
+lol sike
+
+⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+⬜⬜⬛⬛⬛⬛⬜⬛⬛⬛⬛⬜⬜
+⬜⬛⬜⬜⬜⬜⬛⬛⬜⬜⬜⬛⬜
+⬜⬛⬜⬜⬜⬜⬛⬜⬜⬜⬜⬛⬜
+⬜⬛⬜⬜⬜⬜⬛⬛⬜⬜⬜⬛⬜
+⬜⬛⬛⬜⬜⬛⬜⬛⬛⬜⬜⬛⬜
+⬜⬜⬛⬛⬛⬛⬜⬜⬛⬛⬛⬛⬜
+⬜⬜⬜⬜⬛⬜⬜⬜⬜⬛⬜⬜⬜
+⬜⬜⬜⬜⬛⬜⬜⬜⬜⬛⬜⬜⬜
+⬜⬜⬜⬜⬛⬜⬜⬜⬜⬛⬜⬜⬜
+⬜⬜⬜⬜⬛⬜⬜⬜⬜⬛⬜⬜⬜
+⬜⬜⬜⬜⬛⬜⬜⬜⬜⬛⬜⬜⬜
+⬜⬜⬜⬜⬛⬜⬜⬜⬛⬜⬜⬜⬜
+⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜
+⬜⬜⬜⬜⬜⬜⬛⬛⬜⬜⬜⬜⬜
+`)
+          }, 3000)
+     </script>
+</body>
+</html>
